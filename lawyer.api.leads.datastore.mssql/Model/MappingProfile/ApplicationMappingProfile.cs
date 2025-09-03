@@ -12,5 +12,6 @@ public class ApplicationMappingProfile : Profile
         CreateMap<City, CityEntity>().ReverseMap();
         CreateMap<Country, CountryEntity>().ReverseMap();
         CreateMap<LeadState, LeadStateEntity>().ReverseMap();
+        CreateMap<Lead, LeadEntity>().ReverseMap();
     }
 }
