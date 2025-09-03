@@ -4,6 +4,6 @@ namespace lawyer.api.leads.domain;
 
 public class LeadState : BaseEntity
 {
-    public Guid State { get; set; }
+    public string State { get; set; } = string.Empty;
 }
 
