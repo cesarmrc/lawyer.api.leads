@@ -13,4 +13,5 @@ public class LeadEntity : EFEntity
 
     [ForeignKey(nameof(IdLeadState))]
     public LeadStateEntity LeadState { get; set; }
+    public ICollection<LeadMessageEntity> LeadMessages { get; set; }
 }

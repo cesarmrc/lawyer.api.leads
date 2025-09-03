@@ -11,8 +11,6 @@ public class LawyersContext : DbContext
     }
 
     public DbSet<ExampleEntity> Examples { get; set; }
-    public DbSet<CityEntity> Cities { get; set; }
-    public DbSet<CountryEntity> Countries { get; set; }
     public DbSet<LeadStateEntity> LeadStates { get; set; }
     public DbSet<LeadEntity> Leads { get; set; }
     public DbSet<LeadMessageEntity> LeadMessages { get; set; }
@@ -21,15 +19,15 @@ public class LawyersContext : DbContext
     {
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(LawyersContext).Assembly);
         
-        modelBuilder.Entity<CityEntity>()
-            .HasOne(c => c.Country)
-            .WithMany(country => country.Cities)
-            .HasForeignKey(c => c.IdCountry);
+        modelBuilder.Entity<LeadEntity>()
+            .HasOne(c => c.LeadState)
+            .WithMany(leadState => leadState.Leads)
+            .HasForeignKey(c => c.IdLeadState);
         
-        modelBuilder.Entity<CountryEntity>()
-            .HasMany(c => c.Cities)
-            .WithOne(c => c.Country)
-            .HasForeignKey(c => c.IdCountry);
+        modelBuilder.Entity<LeadMessageEntity>()
+            .HasOne(c => c.Lead)
+            .WithMany(c => c.LeadMessages)
+            .HasForeignKey(c => c.IdLead);
 
         base.OnModelCreating(modelBuilder);
     }

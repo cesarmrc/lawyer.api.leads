@@ -7,5 +7,7 @@ namespace lawyer.api.leads.datastore.mssql.Model;
 public class LeadStateEntity : EFEntity
 {
     public string State { get; set; }
+    
+    public ICollection<LeadEntity> Leads { get; set; }
 }
 
