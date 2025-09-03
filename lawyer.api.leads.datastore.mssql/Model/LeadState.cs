@@ -6,6 +6,6 @@ namespace lawyer.api.leads.datastore.mssql.Model;
 [Table("LeadStates", Schema = "leads")]
 public class LeadStateEntity : EFEntity
 {
-    public Guid State { get; set; }
+    public string State { get; set; }
 }
 
