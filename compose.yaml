@@ -1,0 +1,8 @@
+﻿services:
+  lawyer.api.leads.webapi:
+    image: lawyer.api.leads.webapi
+    build:
+      context: .
+      dockerfile: lawyer.api.leads.webapi/Dockerfile
+    ports:
+      - "8082:8080"
