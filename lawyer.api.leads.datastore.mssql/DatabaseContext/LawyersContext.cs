@@ -14,6 +14,7 @@ public class LawyersContext : DbContext
     public DbSet<CityEntity> Cities { get; set; }
     public DbSet<CountryEntity> Countries { get; set; }
     public DbSet<LeadStateEntity> LeadStates { get; set; }
+    public DbSet<LeadEntity> Leads { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

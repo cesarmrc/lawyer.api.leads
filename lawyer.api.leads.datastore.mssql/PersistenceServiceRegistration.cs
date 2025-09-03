@@ -2,12 +2,14 @@ using lawyer.api.leads.application.Contracts.Interfaces.Persistence.Example;
 using lawyer.api.leads.application.Contracts.Interfaces.Persistence.City;
 using lawyer.api.leads.application.Contracts.Interfaces.Persistence.Country;
 using lawyer.api.leads.application.Contracts.Interfaces.Persistence.LeadState;
+using lawyer.api.leads.application.Contracts.Interfaces.Persistence.Lead;
 using lawyer.api.leads.datastore.mssql.DatabaseContext;
 using lawyer.api.leads.datastore.mssql.Model.MappingProfile;
 using lawyer.api.leads.datastore.mssql.Repositories.Example;
 using lawyer.api.leads.datastore.mssql.Repositories.City;
 using lawyer.api.leads.datastore.mssql.Repositories.Country;
 using lawyer.api.leads.datastore.mssql.Repositories.LeadState;
+using lawyer.api.leads.datastore.mssql.Repositories.Lead;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -30,6 +32,8 @@ public static class PersistenceServiceRegistration
         services.AddScoped<ICountryQueryRepository, CountryQueryRepository>();
         services.AddScoped<ILeadStateCommandRepository, LeadStateCommandRepository>();
         services.AddScoped<ILeadStateQueryRepository, LeadStateQueryRepository>();
+        services.AddScoped<ILeadCommandRepository, LeadCommandRepository>();
+        services.AddScoped<ILeadQueryRepository, LeadQueryRepository>();
 
         return services;
     }
